@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+  <title>{% block title %}My Site{% endblock %}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{% static 'css/admin/theme.css' %}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Admin</a>
+    </div>
+    <ul class="nav navbar-nav">
+       <li class="{% block home_active %}{% endblock %}"><a href="{% url 'index' %}">Home</a></li>
+       <li class="{% block page1_active %}{% endblock %}"><a href="{% url 'admin_login' %}?deleted=True">Leads</a></li>
+       <li class="{% block page2_active %}{% endblock %}"><a href="{% url 'admin_login' %}?portfolio=True">Portfolio</a></li>
+       <li class="{% block page3_active %}{% endblock %}"><a href="#">Page 3</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+ {% block content %}
+        <!-- Content of child templates will be inserted here -->
+        {% endblock %}
+</body>
+</html>

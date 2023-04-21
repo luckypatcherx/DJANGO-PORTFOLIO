@@ -1,0 +1,28 @@
+{% extends 'admin/adminlayout.html' %}
+{% block page1_active %}active{% endblock %}
+    {% block title %}LEADS {% endblock %}
+{% block content %}
+<style>
+
+
+  </style>
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>PhoneNo</th>
+        <th>Message</th>
+        <th>Delete</th>
+    </tr>
+    {% for item in my_data %}
+    <tr>
+        <td>{{ item.Name }}</td>
+        <td>{{ item.Email }}</td>
+        <td>{{ item.PhoneNo }}</td>
+        <td>{{ item.Message }}</td>
+        <td><a href="{% url 'delete_my_lead' item.pk %}">Delete</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
