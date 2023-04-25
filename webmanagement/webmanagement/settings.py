@@ -75,12 +75,12 @@ WSGI_APPLICATION = 'webmanagement.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 DATABASES = {
     'default': {
-        'ENGINE': 'mysql.connector.django',
+        'ENGINE': 'django.db.backends.odbc',
         'NAME': 'webdb',
         'USER': 'root',
         'PASSWORD': 'password',
         'HOST': 'localhost',
-        'PORT': '',
+        'PORT': ' 3306',
         'OPTIONS': {
             'driver': 'ODBC Driver 17 for SQL Server',
         },
