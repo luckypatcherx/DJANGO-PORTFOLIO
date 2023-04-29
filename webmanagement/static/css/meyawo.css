@@ -11410,6 +11410,7 @@ p {
   margin-bottom: 30px;
   border-radius: 0;
   overflow: hidden;
+  
 }
 
 .blog-card-header {
@@ -11419,10 +11420,9 @@ p {
 
 .blog-card-img {
   border-radius: 0 0 0 0;
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  width: 350px; /* set the desired width of the container element */
+  height: 350px; /* set the desired height of the container element */
+  object-fit: cover;
 }
 
 .blog-card-body {

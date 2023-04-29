@@ -12,7 +12,8 @@ def index(request):
     return HttpResponse("hello hi")
 
 def main_home(request):
-    return render(request ,'index.html')
+    blog_data = BlogData.objects.all()
+    return render(request ,'index.html', {'blog_data': blog_data})
 
 def userreg(request):
     return render(request,'userreg.html',{})
@@ -68,6 +69,18 @@ def delete_lead(request,pk):
     del_data.delete()
     return HttpResponseRedirect('/admin_login?deleted=True')
 
+#blog section
+
+def blog_add(request):
+    if request.method == 'POST':
+        blog_title = request.POST.get('blog_title')
+        blog_description = request.POST.get('blog_description')
+        blog_img = request.FILES.get('blog_img')
+        blog_data = BlogData(blog_title=blog_title, blog_description=blog_description, blog_img=blog_img)
+        blog_data.save()
+        return HttpResponse('saved success')
+    else:
+        return HttpResponse('Something went wrong')
 
 
 

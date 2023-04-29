@@ -28,5 +28,12 @@ class Admindata(models.Model):
 
     class Meta:
         db_table='admin_data'
+class BlogData(models.Model):
+    blog_title = models.CharField(max_length=255)
+    blog_description = models.TextField()
+    blog_img = models.ImageField(upload_to='static/blog_images/')
+
+    class Meta:
+        db_table='blogdata'
 
 # Create your models here.

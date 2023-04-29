@@ -26,6 +26,7 @@ urlpatterns = [
     path('admin_login',views.admin_login,name='admin_login'),
     path('leads',views.leads,name='leads'),
     path('delete/<int:pk>/', views.delete_lead, name='delete_my_lead'),
+    path('blogadd',views.blog_add,name="blog_add")
 
 
 

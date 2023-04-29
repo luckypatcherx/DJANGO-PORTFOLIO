@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-8gm%3!d2it18y9lt@j@wcs9m8y-92gbl*#zfm=$n801@#y=)2b
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['54.252.172.244','localhost']
+ALLOWED_HOSTS = ['54.252.172.244','localhost','127.0.0.1']
 
 
 # Application definition
@@ -75,17 +75,20 @@ WSGI_APPLICATION = 'webmanagement.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.odbc',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'webdb',
-        'USER': 'root',
-        'PASSWORD': 'password',
-        'HOST': 'localhost',
+        'USER': 'remotesql',
+        'PASSWORD': 'admin',
+        'HOST': '54.252.172.244',
         'PORT': ' 3306',
         'OPTIONS': {
-            'driver': 'ODBC Driver 17 for SQL Server',
+            'charset': 'utf8mb4',
+
         },
     },
 }
+
+
 
 
 # Password validation
