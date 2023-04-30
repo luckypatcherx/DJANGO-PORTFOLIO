@@ -13,6 +13,7 @@
 
 </head>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 <script>
    {% if data_submitted %}
     // Show alert if data is submitted
@@ -30,54 +31,59 @@
 
 </script>
 <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
-
-<!-- Page Navbar -->
-<nav class="custom-navbar" data-spy="affix" data-offset-top="20">
-    <div class="container">
-        <a class="logo" href="#">Abhiram T N</a>
-        <ul class="nav">
-            <li class="item">
-                <a class="link" href="#home">Home</a>
-            </li>
-            <li class="item">
-                <a class="link" href="#about"><a          class                >                            6              4                4 4                              b     o                                                                                                                                                                                             ut</a>
-            </li>
-            <li class="item">
-                <a class="link" href="#portfolio">Portfolio</a>
-            </li>
-            <li class="item">
-                <a class="link" href="#testmonial">Testmonial</a>
-            </li>
-            <li class="item">
-                <a class="link" href="#blog">Blog</a>
-            </li>
-            <li class="item">
-                <a class="link" href="#contact">Contact</a>
-            </li>
-            <li class="item ml-md-3">
-                <a href="components.html" class="btn btn-primary">Components</a>
-            </li>
-        </ul>
-        <a href="javascript:void(0)" id="nav-toggle" class="hamburger hamburger--elastic">
-            <div class="hamburger-box">
-                <div class="hamburger-inner"></div>
-            </div>
-        </a>
-    </div>
-</nav><!-- End of Page Navbar -->
-
+  <!-- Page Navbar -->
+    <nav class="custom-navbar" data-spy="affix" data-offset-top="20">
+        <div class="container">
+            <a class="logo" href="#">Abhiram T N</a>
+            <ul class="nav">
+                <li class="item">
+                    <a class="link" href="#home">Home</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="#about"></a> </li>
+                <li class="item">
+                    <a class="link" href="#portfolio">Portfolio</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="#testmonial">Testmonial</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="#blog">Blog</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="#contact">Contact</a>
+                </li>
+                <li class="item ml-md-3">
+                    <a href="components.html" class="btn btn-primary">Components</a>
+                </li>
+            </ul>
+            <a href="javascript:void(0)" id="nav-toggle" class="hamburger hamburger--elastic">
+                <div class="hamburger-box">
+                    <div class="hamburger-inner"></div>
+                </div>
+            </a>
+        </div>
+    </nav><!-- End of Page Navbar -->
 <!-- page header -->
 <header id="home" class="header">
-    <div class="overlay"></div>
-    <div class="header-content container">
-        <h1 class="header-title">
-            <span class="up">HI!</span>
-            <span class="down">I am Abhiram </span>
-        </h1>
-        <p class="header-subtitle">FULL STACK DEVELOPER</p>
-
-        <button class="btn btn-primary">Visit My Works</button>
-    </div>
+    <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="header-content">
+              <h1 class="header-title">
+                <span class="up">HI!</span>
+                <span class="down">I am Abhiram </span>
+              </h1>
+              <p class="header-subtitle">FULL STACK DEVELOPER</p>
+      
+              <button class="btn btn-primary">Visit My Works</button>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <lottie-player src="{% static 'anim/computer-programming.json' %}" background="transparent"  speed="1"   loop  autoplay></lottie-player>
+          </div>
+        </div>
+      </div>
 </header><!-- end of page header -->
 
 <!-- about section -->
@@ -87,8 +93,8 @@
         <!-- about wrapper -->
         <div class="about">
             <div class="about-img-holder">
-                <img src="{% static '/imgs/man.png' %}" class="about-img"
-                     alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, Abhiram T N Landing page">
+                <lottie-player src="{% static 'anim/97525-code-dark.json' %}" background="transparent"  speed="1"   loop  autoplay></lottie-player>
+
             </div>
             <div class="about-caption">
                 <p class="section-subtitle">Who Am I ?</p>
@@ -124,7 +130,7 @@
                 </div>
             </div>
             <div class="col-md-4 col-lg-4">
-                <div class="service-card">
+                <div class="service-card" style="background-color: black!important;">
                     <div class="body">
 
                         <img src="{% static '/imgs/responsive.svg' %}"
@@ -160,10 +166,10 @@
         <h6 class="section-title mb-6">Portfolio</h6>
         <!-- row -->
         <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-12">
-                <a href="#" class="portfolio-card">
+            <div class="col-lg-6 col-md-6 col-sm-12" >
+                <a href="#" class="portfolio-card" >
 
-                    <img src="{% static '/imgs/web-portfolio.jpg' %}" class="portfolio-card-img"
+                    <img src="{% static '/imgs/web-portfolio--preview.png' %}" class="portfolio-card-img"
                          alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, Abhiram T N Landing page">
                     <span class="portfolio-card-overlay">
                             <span class="portfolio-card-caption">
@@ -176,7 +182,7 @@
             <div class="col-lg-6 col-md-6 col-sm-12">
                 <a href="#" class="portfolio-card">
 
-                    <img src="{% static '/imgs/web-portfolio.jpg' %}"class="portfolio-card-img"
+                    <img src="{% static '/imgs/web-portfolio--preview.png' %}"class="portfolio-card-img"
                          alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, Abhiram T N Landing page">
                     <span class="portfolio-card-overlay">
                             <span class="portfolio-card-caption">
@@ -397,16 +403,15 @@
         </div>
     </footer>
 </div> <!-- end of page footer -->
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.3/lottie.min.js"></script>
 <!-- core  -->
 <script src="{% static 'vendors/jquery/jquery-3.4.1.js' %}"></script>
 <script src="{% static 'vendors/bootstrap/bootstrap.bundle.js' %}"></script>
 
 <!-- bootstrap 3 affix -->
 <script src="{% static 'vendors/bootstrap/bootstrap.affix.js' %}"></script>
+<script src="{% static 'js/meyawo.js' %}"></script>
 
-<!-- Abhiram T N js -->
-<script src="{% static 'assets/js/Abhiram T N.js' %}"></script>
 
 </body>
 </html>
