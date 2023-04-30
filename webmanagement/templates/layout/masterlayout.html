@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      {% load static %}
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with Meyawo landing page.">
+    <meta name="author" content="Devcrud">
+    {% block title %}
+    <title>Default Title</title>{% endblock %}
+        <link rel="stylesheet" href="{% static 'vendors/themify-icons/css/themify-icons.css' %}">
+    <!-- Bootstrap + Meyawo main styles -->
+    <link rel="stylesheet" href="{% static '/css/meyawo.css' %}">
+    <!-- font icons -->
+
+</head>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+   {% if data_submitted %}
+    // Show alert if data is submitted
+    alert('Data submitted successfully!');
+    window.location.href = '/'; // Redirect to homepage
+
+
+    setTimeout(function() {
+        window.scrollTo({
+            top: document.getElementById('contact').offsetTop,
+            behavior: 'smooth'
+        });
+    }, 1000);
+{% endif %}
+
+</script>
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+
+<!-- Page Navbar -->
+<nav class="custom-navbar" data-spy="affix" data-offset-top="20">
+    <div class="container">
+        <a class="logo" href="#">Abhiram T N</a>
+        <ul class="nav">
+            <li class="item">
+                <a class="link" href="#home">Home</a>
+            </li>
+            <li class="item">
+                <a class="link" href="#about"><a          class                >                            6              4                4 4                              b     o                                                                                                                                                                                             ut</a>
+            </li>
+            <li class="item">
+                <a class="link" href="#portfolio">Portfolio</a>
+            </li>
+            <li class="item">
+                <a class="link" href="#testmonial">Testmonial</a>
+            </li>
+            <li class="item">
+                <a class="link" href="#blog">Blog</a>
+            </li>
+            <li class="item">
+                <a class="link" href="#contact">Contact</a>
+            </li>
+            <li class="item ml-md-3">
+                <a href="components.html" class="btn btn-primary">Resume</a>
+            </li>
+        </ul>
+        <a href="javascript:void(0)" id="nav-toggle" class="hamburger hamburger--elastic">
+            <div class="hamburger-box">
+                <div class="hamburger-inner"></div>
+            </div>
+        </a>
+    </div>
+</nav><!-- End of Page Navbar -->
+
+<!-- page header -->
+<header id="home" class="header">
+    <div class="overlay"></div>
+    <div class="header-content container">
+        <h1 class="header-title">
+            <span class="up">HI!</span>
+            <span class="down">I am Abhiram </span>
+        </h1>
+        <p class="header-subtitle">FULL STACK DEVELOPER</p>
+
+        <button class="btn btn-primary">Visit My Works</button>
+    </div>
+</header><!-- end of page header -->
+{% block content %}
+
+{% endblock %}
+
+<!-- footer -->
+<div class="container">
+    <footer class="footer">
+        <!--            <p class="mb-0">Copyright <script>document.write(new Date().getFullYear())</script> &copy; <a href="http://www.devcrud.com">DevCRUD</a></p>-->
+        <div class="social-links text-right m-auto ml-sm-auto">
+            <a href="javascript:void(0)" class="link"><i class="ti-facebook"></i></a>
+            <a href="javascript:void(0)" class="link"><i class="ti-twitter-alt"></i></a>
+
+            <a href="javascript:void(0)" class="link"><i class="ti-instagram"></i></a>
+            <a href="javascript:void(0)" class="link"><i class="ti-linkedin"></i></a>
+        </div>
+    </footer>
+</div> <!-- end of page footer -->
+
+<!-- core  -->
+<script src="{% static 'vendors/jquery/jquery-3.4.1.js' %}"></script>
+<script src="{% static 'vendors/bootstrap/bootstrap.bundle.js' %}"></script>
+
+<!-- bootstrap 3 affix -->
+<script src="{% static 'vendors/bootstrap/bootstrap.affix.js' %}"></script>
+
+<!-- Abhiram T N js -->
+<script src="{% static 'assets/js/Abhiram T N.js' %}"></script>
+
+</body>
+</html>

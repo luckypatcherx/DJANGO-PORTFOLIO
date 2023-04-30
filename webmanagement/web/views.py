@@ -82,6 +82,10 @@ def blog_add(request):
     else:
         return HttpResponse('Something went wrong')
 
+#resume 
+
+def resume(request):
+    return render(request,'resume.html')
 
 
 
