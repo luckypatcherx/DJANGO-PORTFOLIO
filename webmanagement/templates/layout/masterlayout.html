@@ -1,90 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
 <head>
-      {% load static %}
+      
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Start your development with Meyawo landing page.">
     <meta name="author" content="Devcrud">
-    <title>
-    {% block title %}
-   Default Title
-    {% endblock %}
-</title>
-        <link rel="stylesheet" href="{% static 'vendors/themify-icons/css/themify-icons.css' %}">
+    <title>{% block title %} {% endblock %}</title> 
+        <link rel="stylesheet" href="/static/vendors/themify-icons/css/themify-icons.css">
     <!-- Bootstrap + Meyawo main styles -->
-    <link rel="stylesheet" href="{% static '/css/meyawo.css' %}">
+    <link rel="stylesheet" href="/static/css/meyawo.css">
     <!-- font icons -->
 
 </head>
+<body>
+
+
+</body>
+</html>
+    <!-- font icons -->
+
+
+</head>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 <script>
-   {% if data_submitted %}
-    // Show alert if data is submitted
-    alert('Data submitted successfully!');
-    window.location.href = '/'; // Redirect to homepage
-
-
-    setTimeout(function() {
-        window.scrollTo({
-            top: document.getElementById('contact').offsetTop,
-            behavior: 'smooth'
-        });
-    }, 1000);
-{% endif %}
+   
 
 </script>
 <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
- <!-- Page Navbar -->
- <nav class="custom-navbar" data-spy="affix" data-offset-top="20">
-    <div class="container">
-        <a class="logo" href="#">Meyawo</a>         
-        <ul class="nav">
-            <li class="item">
-                <a class="link" href="#home">Home</a>
-            </li>
-            <li class="item">
-                <a class="link" href="#about">About</a>
-            </li>
-            <li class="item">
-                <a class="link" href="#portfolio">Portfolio</a>
-            </li>
-            <li class="item">
-                <a class="link" href="#testmonial">Testmonial</a>
-            </li>
-            <li class="item">
-                <a class="link" href="#blog">Blog</a>
-            </li>
-            <li class="item">
-                <a class="link" href="#contact">Contact</a>
-            </li>
-            <li class="item ml-md-3">
-                <a href="components.html" class="btn btn-primary">Components</a>
-            </li>
-        </ul>
-        <a href="javascript:void(0)" id="nav-toggle" class="hamburger hamburger--elastic">
-            <div class="hamburger-box">
-              <div class="hamburger-inner"></div>
-            </div>
-        </a>
-    </div>          
-</nav><!-- End of Page Navbar -->
+  <!-- Page Navbar -->
+    <nav class="custom-navbar" data-spy="affix" data-offset-top="20">
+        <div class="container">
+            <a class="logo" href="#">Abhiram T N</a>
+            <ul class="nav">
+                <li class="item">
+                    <a class="link" href="{% url 'index' %}">Home</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="#about"></a> </li>
+                <li class="item">
+                    <a class="link" href="#portfolio">Portfolio</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="#testmonial">Testmonial</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="#blog">Blog</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="#contact">Contact</a>
+                </li>
+                <li class="item ml-md-3">
+                    <a href="components.html" class="btn btn-primary">Components</a>
+                </li>
+            </ul>
+            <a href="javascript:void(0)" id="nav-toggle" class="hamburger hamburger--elastic">
+                <div class="hamburger-box">
+                    <div class="hamburger-inner"></div>
+                </div>
+            </a>
+        </div>
+    </nav><!-- End of Page Navbar -->
 <!-- page header -->
 <header id="home" class="header">
-    <div class="overlay"></div>
-    <div class="header-content container">
-        <h1 class="header-title">
-            <span class="up">HI!</span>
-            <span class="down">I am Abhiram </span>
-        </h1>
-        <p class="header-subtitle">FULL STACK DEVELOPER</p>
-
-        <button class="btn btn-primary">Visit My Works</button>
-    </div>
+    <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="header-content">
+              <h1 class="header-title">
+                <span class="up">{% block mtitle %}HI!{% endblock %}</span>
+                <span class="down">{% block stitle %}I am Abhiram {% endblock %}</span>
+              </h1>
+              <p class="header-subtitle">FULL STACK DEVELOPER</p>
+      
+              <button class="btn btn-primary">Download CV</button>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <lottie-player src="/static/anim/computer-programming.json" background="transparent"  speed="1"   loop  autoplay></lottie-player>
+          </div>
+        </div>
+      </div>
 </header><!-- end of page header -->
-{% block content %}
+{% block content %} {% endblock %}
 
-{% endblock %}
 
 <!-- footer -->
 <div class="container">
@@ -99,14 +101,14 @@
         </div>
     </footer>
 </div> <!-- end of page footer -->
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.3/lottie.min.js"></script>
 <!-- core  -->
-<script src="{% static 'vendors/jquery/jquery-3.4.1.js' %}"></script>
-<script src="{% static 'vendors/bootstrap/bootstrap.bundle.js' %}"></script>
+<script src="/static/vendors/jquery/jquery-3.4.1.js"></script>
+<script src="/static/vendors/bootstrap/bootstrap.bundle.js"></script>
 
 <!-- bootstrap 3 affix -->
-<script src="{% static 'vendors/bootstrap/bootstrap.affix.js' %}"></script>
-<script src="{% static 'js/meyawo.js' %}"></script>
+<script src="/static/vendors/bootstrap/bootstrap.affix.js"></script>
+<script src="/static/js/meyawo.js"></script>
 
 
 </body>

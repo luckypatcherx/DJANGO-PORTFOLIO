@@ -2981,7 +2981,7 @@ fieldset:disabled a.btn {
 }
 
 .btn-light:hover {
-  color: white;
+  color: black;
   background: linear-gradient(135deg, #5c5c5c 0%, #f8f9fa 100%);
   border-color: #dae0e5;
 }

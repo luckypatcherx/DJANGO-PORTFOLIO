@@ -1,10 +1,164 @@
 {% extends 'layout/masterlayout.html' %}
+{% load static %}
+{% block title %}Resume {% endblock %}
 
-
-{% block title %} 
-  Abhiram/Resume 
+{% block page %}
+Resume  
+{% endblock %}
+{% block mtitle %}CV {% endblock %}
+{% block stitle %}
+Professional Summary
 {% endblock %}
 
 {% block content %}
-<h2>kjagsuaidsg</h2>
+<style>
+.languages-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.languages-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.languages-list .language-name {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.star-ratings {
+  width: 100px;
+  font-size: 20px;
+}
+
+.star-ratings-css {
+  display: inline-block;
+  position: relative;
+  font-size: 0;
+  cursor: pointer;
+  color: #ddd;
+}
+
+.star-ratings-css-bottom,
+.star-ratings-css-top {
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  width: 0;
+  color: #white!important;
+}
+
+.star-ratings-css-top {
+  z-index: 1;
+  color: white;
+}
+
+.star-ratings-css span {
+  display: inline-block;
+  font-size: 20px;
+  width: 20px;
+  text-align: center;
+  transition: transform .2s;
+}
+
+.star-ratings-css:hover span,
+.star-ratings-css:hover ~ span {
+  transform: rotateY(180deg);
+}
+
+</style>
+<!--Professional Summary !-->
+<section class="section pt-0" id="about">
+  <!-- container -->
+  <div class="container text-center">
+      <!-- about wrapper -->
+      <div class="about">
+          
+          <div class="about-caption">
+              <h2 class="section-title mb-3">Professional Summary</h2>
+              <p>
+                  Hi, Iam Abhiram Welcome to my page. Iam a passionate self learning developer. Feel Free to scroll
+                  down and again welcome to my page
+                  <br>
+              </p>
+          </div>
+      </div><!-- end of about wrapper -->
+  </div><!-- end of container -->
+</section> 
+
+<!-- Skills-->
+<section class="section pt-0" id="about">
+  <!-- container -->
+  <div class="container text-center">
+      <!-- about wrapper -->
+      <div class="about">
+          
+          <div class="about-caption">
+              <h2 class="section-title mb-3">Skills</h2>
+              <h4 class="mb-3">Technical Skills</h2>
+           
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 col-md-12">
+      <ul class="languages-list">
+        <li>
+          <span class="language-name">Python</span>
+          <div class="star-ratings">
+            <div class="star-ratings-css">
+              <div class="star-ratings-css-top" style="width: 90%">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              </div>
+              <div class="star-ratings-css-bottom">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <span class="language-name">Java</span>
+          <div class="star-ratings">
+            <div class="star-ratings-css">
+              <div class="star-ratings-css-top" style="width: 80%">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+              </div>
+              <div class="star-ratings-css-bottom">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <span class="language-name">C++</span>
+          <div class="star-ratings">
+            <div class="star-ratings-css">
+              <div class="star-ratings-css-top" style="width: 70%">
+                <span>★</span><span>★</span><span>★</span><span>☆</span><span>☆</span>
+              </div>
+              <div class="star-ratings-css-bottom">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+      
+    </div>
+    <div class="col-lg-6 d-none d-lg-block">
+      <ul class="list-unstyled">
+        <li>Item 4</li>
+        <li>Item 5</li>
+        <li>Item 6</li>
+      </ul>
+    </div>
+  </div>
+</div>
+          </div>
+      </div><!-- end of about wrapper -->
+  </div><!-- end of container -->
+</section> 
 {% endblock %}
