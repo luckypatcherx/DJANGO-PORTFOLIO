@@ -11073,7 +11073,7 @@ a.text-dark:hover, a.text-dark:focus {
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
-  font-family: 'Baloo Paaji', cursive;
+  font-family: 'Times New Roman', Times, serif;
  color:white
 }
 
@@ -12248,3 +12248,6 @@ pre .code {
 
 
 /*resume css */
+span{
+  color: white !important;
+}

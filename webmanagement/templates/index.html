@@ -48,7 +48,7 @@
                     <a class="link" href="#testmonial">Testmonial</a>
                 </li>
                 <li class="item">
-                    <a class="link" href="#blog">Blog</a>
+                    <a class="link" href="{% url 'resume' %}">Resume</a>
                 </li>
                 <li class="item">
                     <a class="link" href="#contact">Contact</a>
@@ -104,7 +104,9 @@
                     down and again welcome to my page
                     <br>
                 </p>
-                <button class="btn-rounded btn btn-outline-primary mt-4">Download CV</button>
+                <a href="{% url 'resume' %}">
+                <button class="btn-rounded btn btn-outline-primary mt-4">Show resume</button>
+                </a>
             </div>
         </div><!-- end of about wrapper -->
     </div><!-- end of container -->
