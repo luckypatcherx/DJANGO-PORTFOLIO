@@ -87,6 +87,10 @@ def blog_add(request):
 def resume(request):
     return render(request,'resume.html')
 
+#portolio
+
+def portfolio(request):
+    return render(request,'portfolio.html')
 
 
 
