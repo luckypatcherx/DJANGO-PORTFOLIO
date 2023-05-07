@@ -4,11 +4,12 @@
 {% block page %}
 Static Websites/ Portfolio
 {% endblock %}
+
 {% block mtitle %} {% endblock %}
 {% block stitle %}
 Static Websites
 {% endblock %}
-{% block sstitle %}Static Responsive websites i have made for my clients {% endblock %}
+{% block sstitle %}I'm proud to share some examples of my work with you. These responsive websites were created both individually and as part of a team effort. {% endblock %}
 
 {% block lotte %} <lottie-player src="/static/anim/110106-am-impact-zorg-websites.json" background="transparent"
   speed="1" loop autoplay></lottie-player>{% endblock %}
@@ -27,7 +28,7 @@ Static Websites
 
     <div class="row" style="margin-top:40px">
       {% for portfolio in portfolios %}
-      <div class="col-lg-4 col-md-4 col-sm-12">
+      <div class="col-lg-4 col-md-4 col-sm-12" style="margin-top:40px">
         <div class="image-container-custom">
           <img src="{{ portfolio.portfolio_img.url }}" class="img-fluid">
           <div class="overlay-custom">

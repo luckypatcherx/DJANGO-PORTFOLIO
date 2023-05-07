@@ -14,6 +14,7 @@
     {% if session_variable %}
     {% include "components/admin.html" %}
     {% endif %}
+    {% include "components/floaticons.html" %}
     <!-- font icons -->
 
 
@@ -53,17 +54,12 @@
                     <a class="link" href="#portfolio">Portfolio</a>
                 </li>
                 <li class="item">
-                    <a class="link" href="#testmonial">Testmonial</a>
-                </li>
-                <li class="item">
                     <a class="link" href="{% url 'resume' %}">Resume</a>
                 </li>
                 <li class="item">
                     <a class="link" href="#contact">Contact</a>
                 </li>
-                <li class="item ml-md-3">
-                    <a href="components.html" class="btn btn-primary">Components</a>
-                </li>
+               
             </ul>
             <a href="javascript:void(0)" id="nav-toggle" class="hamburger hamburger--elastic">
                 <div class="hamburger-box">
@@ -84,7 +80,7 @@
                         </h1>
                         <p class="header-subtitle">FULL STACK DEVELOPER</p>
 
-                        <button class="btn btn-primary">Visit My Works</button>
+                        <button onclick="location.href='#portfolio'" class="btn btn-primary">Visit My Works</button>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12">
@@ -134,7 +130,7 @@
                     <div class="service-card">
                         <div class="body">
                             <img src="{% static '/imgs/pencil-case.svg' %}"
-                                alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, Abhiram T N Landing page"
+                                alt="PORTFOLIO, Abhiram T N Landing page"
                                 class="icon">
                             <h6 class="title">Video Editing</h6>
                             <p class="subtitle">"I create captivating video edits that tell your story with creativity
@@ -148,7 +144,7 @@
                         <div class="body">
 
                             <img src="{% static '/imgs/responsive.svg' %}"
-                                alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, Abhiram T N Landing page"
+                                alt="PORTFOLIO Abhiram T N Landing page"
                                 class="icon">
                             <h6 class="title">Web Designing</h6>
                             <p class="subtitle">Send me your content. I will give you thousands of theme to choice from.
@@ -162,7 +158,7 @@
                     <div class="service-card">
                         <div class="body">
                             <img src="{% static 'imgs/analytics.svg' %}"
-                                alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, Abhiram T N Landing page"
+                                alt="PORTFOLIO, Abhiram T N Landing page"
                                 class="icon">
                             <h6 class="title">Photo Editing</h6>
                             <p class="subtitle">Want to enhance your photos to perfection, bringing out the best in your
@@ -182,10 +178,10 @@
             <!-- row -->
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12">
-                    <a href="#" class="portfolio-card">
+                    <a href="{% url 'portfolio' %}" class="portfolio-card">
 
                         <img src="{% static '/imgs/web-portfolio--preview.png' %}" class="portfolio-card-img"
-                            alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, Abhiram T N Landing page">
+                            alt="PORTFOLIO, Abhiram T N Landing page">
                         <span class="portfolio-card-overlay">
                             <span class="portfolio-card-caption">
                                 <h4>Responsive Web Designing</h4>
@@ -195,10 +191,10 @@
                     </a>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12">
-                    <a href="#" class="portfolio-card">
+                    <a href="{% url 'portfolio_app' %}" class="portfolio-card">
 
                         <img src="{% static '/imgs/web-portfolio--preview.png' %}" class="portfolio-card-img"
-                            alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, Abhiram T N Landing page">
+                            alt="PORTFOLIO, Abhiram T N Landing page">
                         <span class="portfolio-card-overlay">
                             <span class="portfolio-card-caption">
                                 <h4>Web Applications</h5>
@@ -223,7 +219,7 @@
     <!--            <div class="pricing-wrapper">-->
     <!--                <div class="pricing-card">-->
     <!--                    <div class="pricing-card-header">-->
-    <!--                        <img class="pricing-card-icon" src="{% static  '/imgs/scooter.svg' %}" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, Abhiram T N Landing page">-->
+    <!--                        <img class="pricing-card-icon" src="{% static  '/imgs/scooter.svg' %}" alt="PORTFOLIO, Abhiram T N Landing page">-->
     <!--                    </div>-->
     <!--                    <div class="pricing-card-body">-->
     <!--                        <h6 class="pricing-card-title">Free</h6>-->
@@ -244,7 +240,7 @@
     <!--                </div>-->
     <!--                <div class="pricing-card">-->
     <!--                    <div class="pricing-card-header">-->
-    <!--                        <img class="pricing-card-icon" src="{% static  '/imgs/shipped.svg' %}" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, Abhiram T N Landing page">-->
+    <!--                        <img class="pricing-card-icon" src="{% static  '/imgs/shipped.svg' %}" alt="PORTFOLIO, Abhiram T N Landing page">-->
     <!--                    </div>-->
     <!--                    <div class="pricing-card-body">-->
     <!--                        <h6 class="pricing-card-title">Basic</h6>-->
@@ -265,7 +261,7 @@
     <!--                </div>-->
     <!--                <div class="pricing-card">-->
     <!--                    <div class="pricing-card-header">-->
-    <!--                        <img class="pricing-card-icon" src="{% static '/imgs/startup.svg' %}" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, Abhiram T N Landing page">-->
+    <!--                        <img class="pricing-card-icon" src="{% static '/imgs/startup.svg' %}" alt="PORTFOLIO, Abhiram T N Landing page">-->
     <!--                    </div>-->
     <!--                    <div class="pricing-card-body">-->
     <!--                        <h6 class="pricing-card-title">Premium</h6>-->
@@ -322,7 +318,7 @@
                 <div class="testimonial-card">
                     <div class="testimonial-card-img-holder">
                         <img src="{% static '/imgs/avatar2.jpg' %}" class="testimonial-card-img"
-                             alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, Abhiram T N Landing page">
+                             alt="PORTFOLIO, Abhiram T N Landing page">
                     </div>
                     <div class="testimonial-card-body">
                         <p class="testimonial-card-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -336,7 +332,7 @@
                 <div class="testimonial-card">
                     <div class="testimonial-card-img-holder">
                         <img src="{% static '/imgs/avatar3.jpg' %}" class="testimonial-card-img"
-                             alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, Abhiram T N Landing page">
+                             alt="PORTFOLIO, Abhiram T N Landing page">
                     </div>
                     <div class="testimonial-card-body">
                         <p class="testimonial-card-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -366,6 +362,14 @@
                 <div class="blog-card-body">
                     <h5 class="blog-card-title">{{ blog.blog_title }}</h5>
                     <p>{{ blog.blog_description }}</p>
+                    {% if session_variable %}
+                    <p style="cursor: pointer;" onclick="if (confirm('Are you sure you want to delete this blog?')) { event.preventDefault(); document.getElementById('delete-form-{{ blog.id }}').submit(); }">Delete</p>
+                    <form id="delete-form-{{ blog.id }}" action="{% url 'blog_delete' blog.id %}" method="POST" style="display: none;">
+                      {% csrf_token %}
+                      <input type="hidden" name="_method" value="DELETE">
+                    </form>
+                  {% endif %}
+                  
                 </div>
             </div><!-- end of blog wrapper -->
             {% endfor %}

@@ -1,0 +1,27 @@
+{% extends 'layout/masterlayout.html' %}
+{% load static %}
+{% block title %}Web Applications /Portfolio {% endblock %}
+{% block page %}
+Web Applications /Portfolio
+{% endblock %}
+
+{% block mtitle %} {% endblock %}
+{% block stitle %}
+Web Applications
+{% endblock %}
+{% block sstitle %}OOps iam still figuring out a way to display my works here. Stay tuned it is under construction{% endblock %}
+
+{% block lotte %} <lottie-player src="/static/anim/65356-maintenance-web.json" background="transparent"
+  speed="1" loop autoplay></lottie-player>{% endblock %}
+{% block button %}&nbsp{% endblock %}
+{% block content %}
+<style>
+    body{
+        overflow-y: hidden!important;
+    }
+</style>
+{% if session_variable %}
+{% include "components/admin.html" %}
+{% endif %}
+
+{% endblock %}

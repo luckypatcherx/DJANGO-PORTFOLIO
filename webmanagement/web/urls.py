@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from .import views
-    
+
 urlpatterns = [
 
     path('', views.main_home, name='index'),
@@ -28,6 +28,7 @@ urlpatterns = [
     path('delete/<int:pk>/', views.delete_lead, name='delete_my_lead'),
     path('resume',views.resume,name="resume"),
     path('portfolio',views.portfolio,name='portfolio'),
+    path('portfolio_app',views.portfolio_app,name='portfolio_app'),
     path('admin/logout/', views.admin_logout, name='admin_logout'),
 
     ##admin urls
@@ -42,7 +43,8 @@ urlpatterns = [
     path('portadd',views.portfolio_add,name="portfolio_add"),
 
     ##admin/remove
-    path('delete_portfolio/<int:portfolio_id>/', views.delete_portfolio, name='delete_portfolio')
+    path('delete_portfolio/<int:portfolio_id>/', views.delete_portfolio, name='delete_portfolio'),
+    path('delete_blog/<int:blog_id>/', views.blog_delete, name='blog_delete')
 
 
 

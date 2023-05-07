@@ -4,7 +4,7 @@ from django.shortcuts import render,redirect
 import random
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import *
-from django.urls import reverse
+from django.urls import reverse,reverse_lazy
 
 
 
@@ -41,6 +41,8 @@ def portfolio(request):
     context = {'portfolios': portfolios, 'session_variable': session_variable}
     return render(request, 'portfolio.html', context)
 
+def portfolio_app(request):
+     return render(request, 'portfolio_app.html')
 #resume 
 
 def resume(request):
@@ -139,15 +141,21 @@ def portfolio_add(request):
         portfolio_img = request.FILES.get('portfolio_img')
         portfolio_data = PortfolioData(portfolio_title=portfolio_title, portfolio_link=portfolio_link, portfolio_img=portfolio_img)
         portfolio_data.save()
-        return HttpResponse('saved success')
+        success_message = "Portfolio added successfully"
+        return render(request, 'admin/portfolio.html', {'success_message': success_message})
     else:
-        return HttpResponse('Something went wrong')
+        return render(request, 'admin/portfolio.html')
     
+
 def delete_portfolio(request, portfolio_id):
     portfolio = PortfolioData.objects.get(id=portfolio_id)
     portfolio.delete()
     return redirect('portfolio')
 
+def blog_delete(request, blog_id):
+    blog = BlogData.objects.get(id=blog_id)
+    blog.delete()
+    return redirect(reverse_lazy('index') + '#blog')
 
 
 
@@ -155,4 +163,5 @@ def delete_portfolio(request, portfolio_id):
 
 
 
-# Create your views here.
+
+
