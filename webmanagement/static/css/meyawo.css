@@ -12251,3 +12251,40 @@ pre .code {
 span{
   color: white !important;
 }
+
+.image-container-custom {
+  position: relative;
+  display: inline-block;
+}
+
+.overlay-custom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s ease-in-out;
+}
+
+.image-container-custom:hover .overlay-custom {
+  visibility: visible;
+  opacity: 1;
+}
+
+.title-custom {
+  font-size: 18px;
+  margin: 0;
+  color: white;
+  
+}
+
+.small-text-custom {
+  font-size: 12px;
+  margin: 0;
+  color: #666;
+}
+
+.image-container-custom:hover img {
+  opacity: 0.6 ;
+}

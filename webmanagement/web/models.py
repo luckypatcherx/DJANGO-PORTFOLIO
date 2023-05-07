@@ -1,4 +1,5 @@
 from django.db import models
+from django.shortcuts import redirect
 
 
 class user(models.Model):
@@ -35,5 +36,15 @@ class BlogData(models.Model):
 
     class Meta:
         db_table='blogdata'
+
+class PortfolioData(models.Model):
+    portfolio_title = models.CharField(max_length=255)
+    portfolio_link = models.TextField()
+    portfolio_img = models.ImageField(upload_to='static/portfolio_images/')
+
+    class Meta:
+        db_table = 'portfoliodata'
+
+
 
 # Create your models here.

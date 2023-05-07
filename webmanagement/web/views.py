@@ -1,11 +1,12 @@
-from django.contrib import messages
+
 from django.contrib.auth.models import User
 from django.shortcuts import render,redirect
 import random
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import *
+from django.urls import reverse
 
-from django.db import  models
+
 
 
 def index(request):
@@ -13,7 +14,10 @@ def index(request):
 
 def main_home(request):
     blog_data = BlogData.objects.all()
-    return render(request ,'index.html', {'blog_data': blog_data})
+    session_variable = request.session.get('admin_id')  # retrieve session variable
+    print("sessionvariable",session_variable)
+    return render(request, 'index.html', {'blog_data': blog_data, 'session_variable': session_variable})
+    
 
 def userreg(request):
     return render(request,'userreg.html',{})
@@ -30,6 +34,28 @@ def contactme(request):
         return render(request, 'index.html', {'data_submitted': True})
     else:
         return HttpResponse('Something went wrong')
+
+def portfolio(request):
+    portfolios = PortfolioData.objects.all()
+    session_variable = request.session.get('admin_id')  # retrieve session variable
+    context = {'portfolios': portfolios, 'session_variable': session_variable}
+    return render(request, 'portfolio.html', context)
+
+#resume 
+
+def resume(request):
+    return render(request,'resume.html')
+
+#portolio
+
+
+
+
+
+
+##authentication/admin
+
+
 def loginpanel(request):
     ud=Userdata.objects.all()
     return render(request,'admin/login.html',{'ud':ud})
@@ -37,24 +63,44 @@ def loginpanel(request):
 def admin_login(request):
     my_data = Userdata.objects.all()
     context = {'my_data': my_data}
-
-
     al = Admindata.objects.all()
     username = request.POST.get('username')
     password = request.POST.get('password')
     for admin in al:
         # Check if username and password match
         if admin.UserId == username and admin.Password == password:
-                return render(request, 'admin/leads.html', context)
+            # Store user ID in session
+            request.session['admin_id'] = admin.id
+            return render(request, 'admin/leads.html', context)
+    else: 
+        return render(request,'admin/login.html')
 
+
+def admin_leads(request):
+    # Check if user is logged in
+    if 'admin_id' not in request.session:
+        return redirect('admin_login')
+
+    my_data = Userdata.objects.all()
+    context = {'my_data': my_data}
     if request.GET.get('deleted') == 'True':
         return render(request, 'admin/leads.html', context)
-
-    elif request.GET.get('portfolio') == 'True':
-        return render(request,'admin/portfolio.html')
-
     else:
-        return HttpResponse('Ayyo , Something broken')
+        return render(request, 'admin/leads.html', context)
+
+def admin_blogs(request):
+    # Check if user is logged in
+    if 'admin_id' not in request.session:
+        return redirect('admin_login')
+
+    return render(request, 'admin/blogs.html')
+
+def admin_portfolio(request):
+    # Check if user is logged in
+    if 'admin_id' not in request.session:
+        return redirect('admin_login')
+
+    return render(request, 'admin/portfolio.html')
 
 
 def leads(request):
@@ -69,6 +115,11 @@ def delete_lead(request,pk):
     del_data.delete()
     return HttpResponseRedirect('/admin_login?deleted=True')
 
+def admin_logout(request):  
+    if 'admin_id' in request.session:
+        del request.session['admin_id']
+    return redirect(reverse('admin_login'))
+
 #blog section
 
 def blog_add(request):
@@ -81,19 +132,21 @@ def blog_add(request):
         return HttpResponse('saved success')
     else:
         return HttpResponse('Something went wrong')
-
-#resume 
-
-def resume(request):
-    return render(request,'resume.html')
-
-#portolio
-
-def portfolio(request):
-    return render(request,'portfolio.html')
-
-
-
+def portfolio_add(request):
+    if request.method == 'POST':
+        portfolio_title = request.POST.get('portfolio_title')
+        portfolio_link = request.POST.get('portfolio_link')
+        portfolio_img = request.FILES.get('portfolio_img')
+        portfolio_data = PortfolioData(portfolio_title=portfolio_title, portfolio_link=portfolio_link, portfolio_img=portfolio_img)
+        portfolio_data.save()
+        return HttpResponse('saved success')
+    else:
+        return HttpResponse('Something went wrong')
+    
+def delete_portfolio(request, portfolio_id):
+    portfolio = PortfolioData.objects.get(id=portfolio_id)
+    portfolio.delete()
+    return redirect('portfolio')
 
 
 

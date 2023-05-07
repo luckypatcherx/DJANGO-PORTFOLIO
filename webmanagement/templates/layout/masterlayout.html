@@ -35,6 +35,7 @@
     <nav class="custom-navbar" data-spy="affix" data-offset-top="20">
         <div class="container">
             <a class="logo" href="#">Abhiram T N</a>
+
             <ul class="nav">
                 <li class="item">
                     <a class="link" href="{% url 'index' %}">Home</a>
@@ -74,14 +75,18 @@
                 <span class="up">{% block mtitle %}HI!{% endblock %}</span>
                 <span class="down">{% block stitle %}I am Abhiram {% endblock %}</span>
               </h1>
-              <p class="header-subtitle">FULL STACK DEVELOPER</p>
+             <p class="header-subtitle"> {% block sstitle %}FULL STACK DEVELOPER{% endblock %}</p> 
       
-              <button class="btn btn-primary">Download CV</button>
+           {% block button %}   <button class="btn btn-primary">Download CV</button> {% endblock %}
             </div>
           </div>
+          
           <div class="col-lg-6 col-md-6 col-sm-12">
+            {% block lotte %} 
             <lottie-player src="/static/anim/109783-document.json" background="transparent"  speed="1"   loop  autoplay></lottie-player>
-          </div>
+            {% endblock %}
+        </div>
+         
         </div>
       </div>
 </header><!-- end of page header -->

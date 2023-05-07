@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from .import views
-
+    
 urlpatterns = [
 
     path('', views.main_home, name='index'),
@@ -26,8 +26,26 @@ urlpatterns = [
     path('admin_login',views.admin_login,name='admin_login'),
     path('leads',views.leads,name='leads'),
     path('delete/<int:pk>/', views.delete_lead, name='delete_my_lead'),
+    path('resume',views.resume,name="resume"),
+    path('portfolio',views.portfolio,name='portfolio'),
+    path('admin/logout/', views.admin_logout, name='admin_logout'),
+
+    ##admin urls
+    
+    path('admin/logout/', views.admin_logout, name='admin_logout'),
+    path('admin/leads/', views.admin_leads, name='admin_leads'),
+    path('admin/blogs/', views.admin_blogs, name='admin_blogs'),
+    path('admin/portfolio/', views.admin_portfolio, name='admin_portfolio'),
+
+    ##admin/add-data
     path('blogadd',views.blog_add,name="blog_add"),
-    path('resume',views.resume,name="resume")
+    path('portadd',views.portfolio_add,name="portfolio_add"),
+
+    ##admin/remove
+    path('delete_portfolio/<int:portfolio_id>/', views.delete_portfolio, name='delete_portfolio')
+
+
+
 
 
 

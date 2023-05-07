@@ -1,12 +1,61 @@
 {% extends 'layout/masterlayout.html' %}
 {% load static %}
-{% block title %}Resume {% endblock %}
+{% block title %}Static Websites/ Portfolio {% endblock %}
 {% block page %}
-Resume
+Static Websites/ Portfolio
 {% endblock %}
 {% block mtitle %} {% endblock %}
 {% block stitle %}
-Professional Summary
+Static Websites
 {% endblock %}
+{% block sstitle %}Static Responsive websites i have made for my clients {% endblock %}
 
+{% block lotte %} <lottie-player src="/static/anim/110106-am-impact-zorg-websites.json" background="transparent"
+  speed="1" loop autoplay></lottie-player>{% endblock %}
+{% block button %}<button class="btn btn-primary" onclick="location.href='#works'">View Works</button>{% endblock %}
 {% block content %}
+{% if session_variable %}
+{% include "components/admin.html" %}
+{% endif %}
+
+<!-- Website Portfolios !-->
+<section class="section pt-0" id="works">
+  <!-- container -->
+
+  <div class="container">
+    
+
+    <div class="row" style="margin-top:40px">
+      {% for portfolio in portfolios %}
+      <div class="col-lg-4 col-md-4 col-sm-12">
+        <div class="image-container-custom">
+          <img src="{{ portfolio.portfolio_img.url }}" class="img-fluid">
+          <div class="overlay-custom">
+            <h5 class="title-custom">{{ portfolio.portfolio_title }}</h5>
+            <a href="{{ portfolio.portfolio_link }}">
+              <p style="color:white" class="small-text-custom">Visit The website</p>
+            </a>
+            {% if session_variable %}
+            <a href="{% url 'delete_portfolio' portfolio.id %}"
+              onclick="if (confirm('Are you sure you want to delete this portfolio?')) { event.preventDefault(); document.getElementById('delete-form-{{ portfolio.id }}').submit(); }">Delete</a>
+            <form id="delete-form-{{ portfolio.id }}" action="{% url 'delete_portfolio' portfolio.id %}" method="POST"
+              style="display: none;">
+              {% csrf_token %}
+              <input type="hidden" name="_method" value="DELETE">
+            </form>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+
+
+
+
+
+</section>
+
+{% endblock %}

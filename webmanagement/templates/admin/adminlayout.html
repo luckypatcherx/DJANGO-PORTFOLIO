@@ -11,20 +11,28 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-
+{% block nav %}
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">Admin</a>
+     
+
     </div>
     <ul class="nav navbar-nav">
        <li class="{% block home_active %}{% endblock %}"><a href="{% url 'index' %}">Home</a></li>
-       <li class="{% block page1_active %}{% endblock %}"><a href="{% url 'admin_login' %}?deleted=True">Leads</a></li>
-       <li class="{% block page2_active %}{% endblock %}"><a href="{% url 'admin_login' %}?portfolio=True">Portfolio</a></li>
-       <li class="{% block page3_active %}{% endblock %}"><a href="#">Page 3</a></li>
+       <li class="{% block page1_active %}{% endblock %}"><a href="{% url 'admin_leads' %}">Leads</a></li>
+       <li class="{% block page2_active %}{% endblock %}"><a href="{% url 'admin_blogs' %}">Blogs</a></li>
+       <li class="{% block page3_active %}{% endblock %}"><a href="{% url 'admin_portfolio' %}">Portfolio</a></li>
     </ul>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{% url 'admin_logout' %}">Logout</a></li>
+      </ul>
+  </div>
   </div>
 </nav>
+{% endblock %}
 
 
  {% block content %}
