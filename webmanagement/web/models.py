@@ -25,8 +25,6 @@ class Admindata(models.Model):
 
     UserId=models.CharField(max_length=50)
     Password=models.CharField(max_length=100)
-
-
     class Meta:
         db_table='admin_data'
 class BlogData(models.Model):

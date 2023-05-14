@@ -45,134 +45,23 @@ Professional Summary
   <!-- container -->
   <div class="container text-center">
     <!-- about wrapper -->
+    
     <div class="about">
       <div class="about-caption">
         <h2 class="section-title mb-3">Skills</h2>
-        <h4 class="mb-3">Technical Skills</h2>
-          </li>
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-6">
-                <p class="section-subtitle">Programming Languages</p>
-                <li>
-                  JavaScript
-                </li>
-                <li>
-                  Python
-                </li>
-                <li>
-                  C++
-                </li>
-              </div>
-              <div class="col-lg-6">
-                <p class="section-subtitle">Web Development</p>
-                <li>
-                  HTML 5
-                </li>
-                <li>
-                  Javascript
-                </li>
-                <li>
-                  CSS ,SCSS
-                </li>
-                <li>
-                  Bootstrap 5
-                </li>
-                <li>
-                  Jquery
-                </li>
-              </div>
-              <div class="col-lg-6">
-                <p class="section-subtitle">Databases</p>
-                <li>
-                  MY SQL
-                </li>
-                <li>
-                  MS SQL
-                </li>
-
-              </div>
-              <div class="col-lg-6">
-                <p class="section-subtitle">Version Control</p>
-                <li>
-                  Subversion
-                </li>
-                <li>
-                  Git
-                </li>
-                <li>
-                  Github
-                </li>
-
-              </div>
-              <div class="col-lg-6">
-                <p class="section-subtitle">Cloud Computing</p>
-                <li>
-                  Amazon Web Services
-                </li>
-                <li>
-                  Google Cloud Platform
-                </li>
-
-              </div>
-              <div class="col-lg-6">
-                <p class="section-subtitle">Development Frameworks</p>
-                <li>
-                  Django
-                </li>
-                <li>
-                  Laravel
-                </li>
-
-
-              </div>
-              <div class="col-lg-6">
-                <p class="section-subtitle">Web Servor Administration</p>
-                <li>
-                  Apache
-                </li>
-                <li>
-                  Nginx
-                </li>
-                <li>
-                  IIS
-                </li>
-              </div>
-              <div class="col-lg-6">
-                <p class="section-subtitle">Miscellaneous Software Knowledge</p>
-                <li>
-                  Adobe Photoshop
-                </li>
-                <li>
-                  Corel Draw
-                </li>
-                <li>
-                  Adobe Premier Pro
-                </li>
-                <li>
-                  Davinci Resolve
-                </li>
-              </div>
-              <div class="col-lg-6">
-                <p class="section-subtitle">Operating Systems</p>
-                <li>
-                  Windows
-                </li>
-                <li>
-                  Cent Os
-                </li>
-                <li>
-                  Ubuntu
-                </li>
-                <li>
-                  Proxmox
-                </li>
-
-              </div>
-            </div>
-          </div><!-- end of about wrapper -->
-      </div><!-- end of container -->
-
+        {% for category in skills_by_category %}
+        <div class="col-lg-6">
+          <p class="section-subtitle">{{ category.category }}</p>
+          <ul>
+            {% for skill in category.skills %}
+            <li>{{ skill.skill_name }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    
 </section>
 <!-- work expperience start-->
 <section class="section pt-0" id="about">

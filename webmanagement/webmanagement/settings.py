@@ -51,7 +51,7 @@ MIDDLEWARE = [
    
 ]
 
-SESSION_COOKIE_AGE = 600
+SESSION_COOKIE_AGE = 6000
 import os
 ROOT_URLCONF = 'webmanagement.urls'
 

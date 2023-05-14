@@ -42,10 +42,11 @@ urlpatterns = [
     ##admin/add-data
     path('blogadd',views.blog_add,name="blog_add"),
     path('portadd',views.portfolio_add,name="portfolio_add"),
-
+    path('skilladd',views.skill_add,name='skill_add'),
     ##admin/remove
     path('delete_portfolio/<int:portfolio_id>/', views.delete_portfolio, name='delete_portfolio'),
-    path('delete_blog/<int:blog_id>/', views.blog_delete, name='blog_delete')
+    path('delete_blog/<int:blog_id>/', views.blog_delete, name='blog_delete'),
+    path('delete_skill/<int:skill_id>/',views.delete_skill,name='delete_skill')
 
     
 

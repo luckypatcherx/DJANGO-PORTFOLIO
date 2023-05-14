@@ -2,6 +2,44 @@
 {% block page4_active %}active{% endblock %}
 {% block title %}Resume {% endblock %}
 {% block content %}
+<style>
+  .form-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+  }
+
+  .form-container label,
+  .form-container input,
+  .form-container textarea {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .form-container input[type="file"] {
+    padding: 5px;
+  }
+
+  .form-container textarea {
+    height: 100px;
+  }
+
+  .form-container button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .form-container button[type="submit"]:disabled {
+    background-color: #b3b3b3;
+    cursor: not-allowed;
+  }
+</style>
+
 
 
 <div class="container">
@@ -9,77 +47,95 @@
     <div class="row">
       <div class="col-lg-6">
         <h4>Add Skill</h4>
-        <form method="POST">
-          {% csrf_token %}
-        
-          <div class="form-group row">
-            <label for="{{ form.skill_category.id_for_label }}" class="col-sm-3 col-form-label">Skill Category</label>
-            <div class="col-sm-9">
-              {{ form.skill_category }}
-            </div>
-          </div>
-        
-          <div class="form-group row">
-            <label for="{{ form.skill_name.id_for_label }}" class="col-sm-3 col-form-label">Skill Name</label>
-            <div class="col-sm-9">
-              {{ form.skill_name }}
-            </div>
-          </div>
-        
-          <div class="form-group row">
-            <label for="{{ form.rating.id_for_label }}" class="col-sm-3 col-form-label">Rating</label>
-            <div class="col-sm-9">
-              {{ form.rating }}
-            </div>
-          </div>
-        
-          <button type="submit" class="btn btn-primary">Save</button>
-        </form>
-        
-    
-        
-        
-        
-        
+        <div class="form-container">
+          {% if success_message %}
+          <div class="alert alert-success">{{ success_message }}</div>
+          {% endif %}
+
+          <h2>Add Skill</h2>
+          <form method="post" enctype="multipart/form-data" action="{% url 'skill_add' %}">
+            {% csrf_token %}
+
+
+            <h4></h4>
+            <label for="skill_category">Skill Category:</label>
+            <select id="skill_category" name="skill_category" required>
+              {% for category in categories %}
+              <option value="{{ category.skill_category }}">{{ category.skill_category }}</option>
+              {% endfor %}
+            </select>
+
+            <label for="skill_name">Skill Name:</label>
+            <input type="text" id="skill_name" name="skill_name" required>
+            <label for="rating">Rating:</label>
+            <div id="star-rating"></div>
+            <input type="hidden" id="rating" name="rating" required>
+            <button id="submitBtn" type="submit">Submit</button>
+
+          </form>
+        </div>
+
+
+
       </div>
       <div class="col-lg-6">
         <h4>View/Edit</h4>
-       
+
         <table border="1" id="skills_table">
           <thead>
             <tr>
               <th>skill_category</th>
               <th>skill_name</th>
-              <th>rating</th>
+              <th>rating in 5</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody id="my_table_body">
             {% for item in my_data %}
-              <tr class="{{ item.skill_category }}">
-                <td>{{ item.skill_category }}</td>
-                <td>{{ item.skill_name }}</td>
-                <td>{{ item.rating }}</td>
-              </tr>
+            <tr class="{{ item.skill_category }}">
+              <td>{{ item.skill_category }}</td>
+              <td>{{ item.skill_name }}</td>
+              <td>{{ item.rating }}</td>
+              <td>  <a href="{% url 'delete_skill' item.id %}"
+                onclick="if (confirm('Are you sure you want to delete this skill?')) { event.preventDefault(); document.getElementById('delete-form-{{ item.id }}').submit(); }">Delete</a>
+              <form id="delete-form-{{ item.id }}" action="{% url 'delete_skill' item.id %}" method="POST"
+                style="display: none;">
+                {% csrf_token %}
+                <input type="hidden" name="_method" value="DELETE">
+              </form>
             {% endfor %}
           </tbody>
         </table>
-        
-        
+
+
       </div>
     </div>
   </div>
-  
+
 </div>
 
 <script type="text/javascript">
-  $(document).ready(function() {
+  $(document).ready(function () {
     $('#skills_table').DataTable({
-      "pageLength": 10
+      "pageLength": 10,
+      "responsive": true
     });
-    
-    $('#skills_table').DataTable().order([2, 'desc']).draw();
+    $(function() {
+        $('#star-rating').raty({
+            path: 'https://cdnjs.cloudflare.com/ajax/libs/raty/2.8.0/images/',
+            score: function() {
+                return $(this).attr('data-score');
+            },
+            click: function(score, evt) {
+                $('#rating').val(score);
+                c
+            }
+        });
+    });
+
+
   });
 </script>
 
-  
+
 {% endblock %}

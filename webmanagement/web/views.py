@@ -1,5 +1,6 @@
 
 from django.contrib.auth.models import User
+from django.contrib import messages 
 from django.shortcuts import render,redirect
 from .forms import *
 import random
@@ -42,12 +43,24 @@ def portfolio(request):
     context = {'portfolios': portfolios, 'session_variable': session_variable}
     return render(request, 'portfolio.html', context)
 
+
 def portfolio_app(request):
      return render(request, 'portfolio_app.html')
 #resume 
 
 def resume(request):
-    return render(request,'resume.html')
+    categories = Skill.objects.values('skill_category').distinct()
+    skills_by_category = []
+    for category in categories:
+        skills = Skill.objects.filter(skill_category=category['skill_category'])
+        skills_by_category.append({
+            'category': category['skill_category'],
+            'skills': skills,
+        })
+    context = {
+        'skills_by_category': skills_by_category,
+    }
+    return render(request, 'resume.html', context)
 
 #portolio
 
@@ -105,12 +118,12 @@ def admin_portfolio(request):
     return render(request, 'admin/portfolio.html')
 
 def admin_resume(request):
-    form=SkillForm()
+    categories = Skill.objects.values('skill_category').distinct()
     my_data = Skill.objects.all()
-    context = {'my_data': my_data}
+    
     if 'admin_id' not in request.session:
         return redirect('admin_login')
-    return render(request,'admin/resume.html',{'form':form,'my_data':my_data})
+    return render(request,'admin/resume.html',{'my_data':my_data,'categories':categories})
 
 def leads(request):
     my_data = Userdata.objects.all()
@@ -123,6 +136,10 @@ def delete_lead(request,pk):
     del_data=Userdata.objects.get(pk=pk)
     del_data.delete()
     return HttpResponseRedirect('/admin_login?deleted=True')
+
+
+    
+    
 
 def admin_logout(request):  
     if 'admin_id' in request.session:
@@ -159,23 +176,38 @@ def delete_portfolio(request, portfolio_id):
     portfolio.delete()
     return redirect('portfolio')
 
+def delete_skill(request,skill_id):
+    categories = Skill.objects.values('skill_category').distinct()
+    skill =Skill.objects.get(id=skill_id)
+    print('skill',skill_id)
+    skill.delete()
+    if 'admin_id' not in request.session:
+        return redirect('admin_login')
+    my_data = Skill.objects.all()
+    success_message = "Skill added successfully"
+    return render(request, 'admin/resume.html', {'success_message': success_message,'my_data':my_data,'categories':categories})
+
 def blog_delete(request, blog_id):
     blog = BlogData.objects.get(id=blog_id)
-    blog.delete()
+    blog.delete()   
+    
     return redirect(reverse_lazy('index') + '#blog')
 
 # resume add
-def create_skill(request):
+
+def skill_add(request):
     if request.method == 'POST':
-        form = SkillForm(request.POST)
-        if form.is_valid():
-            skill = form.save()
-            return redirect('skill_detail', pk=skill.pk)
+        categories = Skill.objects.values('skill_category').distinct()
+        skill_category = request.POST.get('skill_category')
+        skill_name = request.POST.get('skill_name')
+        rating = request.POST.get('rating')
+        skill = Skill(skill_category=skill_category,skill_name=skill_name,rating=rating)
+        skill.save()
+        my_data = Skill.objects.all()
+        success_message = "Skill added successfully"
+        return render(request, 'admin/resume.html', {'success_message': success_message,'my_data':my_data,'categories':categories})
     else:
-        form = SkillForm()
-    return render(request, 'create_skill.html', {'form': form})
-
-
+        return redirect('admin_login')
 
 
 
