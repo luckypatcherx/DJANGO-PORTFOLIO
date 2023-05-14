@@ -3,11 +3,6 @@
 {% block title %}Resume {% endblock %}
 {% block content %}
 
-<script>
-  $(document).ready(function() {
-    $('#skills_table').DataTable();
-});
-</script>
 
 <div class="container">
   <div class="container">
@@ -75,4 +70,16 @@
   </div>
   
 </div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#skills_table').DataTable({
+      "pageLength": 10
+    });
+    
+    $('#skills_table').DataTable().order([2, 'desc']).draw();
+  });
+</script>
+
+  
 {% endblock %}
