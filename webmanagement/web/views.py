@@ -1,6 +1,7 @@
 
 from django.contrib.auth.models import User
 from django.shortcuts import render,redirect
+from .forms import *
 import random
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import *
@@ -101,9 +102,15 @@ def admin_portfolio(request):
     # Check if user is logged in
     if 'admin_id' not in request.session:
         return redirect('admin_login')
-
     return render(request, 'admin/portfolio.html')
 
+def admin_resume(request):
+    form=SkillForm()
+    my_data = Skill.objects.all()
+    context = {'my_data': my_data}
+    if 'admin_id' not in request.session:
+        return redirect('admin_login')
+    return render(request,'admin/resume.html',{'form':form,'my_data':my_data})
 
 def leads(request):
     my_data = Userdata.objects.all()
@@ -157,6 +164,16 @@ def blog_delete(request, blog_id):
     blog.delete()
     return redirect(reverse_lazy('index') + '#blog')
 
+# resume add
+def create_skill(request):
+    if request.method == 'POST':
+        form = SkillForm(request.POST)
+        if form.is_valid():
+            skill = form.save()
+            return redirect('skill_detail', pk=skill.pk)
+    else:
+        form = SkillForm()
+    return render(request, 'create_skill.html', {'form': form})
 
 
 

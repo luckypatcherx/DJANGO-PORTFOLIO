@@ -1,0 +1,12 @@
+{% for star in widget.stars %}
+  <label{% for k, v in widget.attrs.items %} {{ k }}="{{ v }}"{% endfor %}>
+    <input type="radio" name="{{ widget.name }}" value="{{ star }}"
+      {% if widget.value is not None %}
+        {% if star == widget.value %}
+          checked
+        {% endif %}
+      {% endif %}
+    >
+    <span class="star"></span>
+  </label>
+{% endfor %}

@@ -46,5 +46,14 @@ class PortfolioData(models.Model):
         db_table = 'portfoliodata'
 
 
+class Skill(models.Model):
+    skill_category = models.CharField(max_length=100)
+    skill_name = models.CharField(max_length=100)
+    rating = models.IntegerField()
+
+    class Meta:
+        db_table ='skills'
+
+
 
 # Create your models here.

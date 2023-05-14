@@ -7,6 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="{% static 'css/admin/theme.css' %}">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
@@ -24,7 +27,9 @@
        <li class="{% block page1_active %}{% endblock %}"><a href="{% url 'admin_leads' %}">Leads</a></li>
        <li class="{% block page2_active %}{% endblock %}"><a href="{% url 'admin_blogs' %}">Blogs</a></li>
        <li class="{% block page3_active %}{% endblock %}"><a href="{% url 'admin_portfolio' %}">Portfolio</a></li>
-    </ul>
+       <li class="{% block page4_active %}{% endblock %}"><a href="{% url 'admin_resume' %}">Resume</a></li>
+
+      </ul>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="{% url 'admin_logout' %}">Logout</a></li>

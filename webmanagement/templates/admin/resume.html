@@ -1,0 +1,78 @@
+{% extends 'admin/adminlayout.html' %}
+{% block page4_active %}active{% endblock %}
+{% block title %}Resume {% endblock %}
+{% block content %}
+
+<script>
+  $(document).ready(function() {
+    $('#skills_table').DataTable();
+});
+</script>
+
+<div class="container">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <h4>Add Skill</h4>
+        <form method="POST">
+          {% csrf_token %}
+        
+          <div class="form-group row">
+            <label for="{{ form.skill_category.id_for_label }}" class="col-sm-3 col-form-label">Skill Category</label>
+            <div class="col-sm-9">
+              {{ form.skill_category }}
+            </div>
+          </div>
+        
+          <div class="form-group row">
+            <label for="{{ form.skill_name.id_for_label }}" class="col-sm-3 col-form-label">Skill Name</label>
+            <div class="col-sm-9">
+              {{ form.skill_name }}
+            </div>
+          </div>
+        
+          <div class="form-group row">
+            <label for="{{ form.rating.id_for_label }}" class="col-sm-3 col-form-label">Rating</label>
+            <div class="col-sm-9">
+              {{ form.rating }}
+            </div>
+          </div>
+        
+          <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+        
+    
+        
+        
+        
+        
+      </div>
+      <div class="col-lg-6">
+        <h4>View/Edit</h4>
+       
+        <table border="1" id="skills_table">
+          <thead>
+            <tr>
+              <th>skill_category</th>
+              <th>skill_name</th>
+              <th>rating</th>
+            </tr>
+          </thead>
+          <tbody id="my_table_body">
+            {% for item in my_data %}
+              <tr class="{{ item.skill_category }}">
+                <td>{{ item.skill_category }}</td>
+                <td>{{ item.skill_name }}</td>
+                <td>{{ item.rating }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        
+        
+      </div>
+    </div>
+  </div>
+  
+</div>
+{% endblock %}

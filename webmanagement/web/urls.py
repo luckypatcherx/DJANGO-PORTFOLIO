@@ -37,6 +37,7 @@ urlpatterns = [
     path('admin/leads/', views.admin_leads, name='admin_leads'),
     path('admin/blogs/', views.admin_blogs, name='admin_blogs'),
     path('admin/portfolio/', views.admin_portfolio, name='admin_portfolio'),
+    path('admin/resume',views.admin_resume,name='admin_resume'),
 
     ##admin/add-data
     path('blogadd',views.blog_add,name="blog_add"),
@@ -46,7 +47,7 @@ urlpatterns = [
     path('delete_portfolio/<int:portfolio_id>/', views.delete_portfolio, name='delete_portfolio'),
     path('delete_blog/<int:blog_id>/', views.blog_delete, name='blog_delete')
 
-
+    
 
 
 
