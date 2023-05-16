@@ -49,16 +49,18 @@ Professional Summary
     <div class="about">
       <div class="about-caption">
         <h2 class="section-title mb-3">Skills</h2>
-        {% for category in skills_by_category %}
-        <div class="col-lg-6">
-          <p class="section-subtitle">{{ category.category }}</p>
-          <ul>
-            {% for skill in category.skills %}
-            <li>{{ skill.skill_name }}</li>
-            {% endfor %}
-          </ul>
+        <div class="row">
+          {% for category in skills_by_category %}
+          <div class="col-lg-6 mb-4">
+            <p class="section-subtitle">{{ category.category }}</p>
+            <ul>
+              {% for skill in category.skills %}
+              <li>{{ skill.skill_name }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endfor %}
         </div>
-        {% endfor %}
       </div>
     </div>
     
