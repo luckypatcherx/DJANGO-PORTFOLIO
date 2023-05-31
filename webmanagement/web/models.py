@@ -15,8 +15,8 @@ class Userdata(models.Model):
 
     Name=models.CharField(max_length=45)
     Email=models.EmailField()
-    PhoneNo = models.CharField(max_length=15)
-    Message=models.CharField(max_length=45)
+    PhoneNo = models.CharField(max_length=35)
+    Message=models.CharField(max_length=450)
 
     class Meta:
         db_table='userdata'
