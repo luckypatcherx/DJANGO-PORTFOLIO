@@ -46,7 +46,11 @@ urlpatterns = [
     ##admin/remove
     path('delete_portfolio/<int:portfolio_id>/', views.delete_portfolio, name='delete_portfolio'),
     path('delete_blog/<int:blog_id>/', views.blog_delete, name='blog_delete'),
-    path('delete_skill/<int:skill_id>/',views.delete_skill,name='delete_skill')
+    path('delete_skill/<int:skill_id>/',views.delete_skill,name='delete_skill'),
+
+    ##react/home
+
+    path('react_home',views.react_home,name='react')
 
     
 

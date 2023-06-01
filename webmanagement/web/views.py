@@ -208,6 +208,13 @@ def skill_add(request):
     else:
         return redirect('admin_login')
 
+# testing react as a front end
+
+def react_home(request):
+    return render(request, 'fr_react/reactapp/build/index.html')
+
+
+
 
 
 
