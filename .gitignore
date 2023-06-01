@@ -1,3 +1,8 @@
 
 webmanagement/webmanagement/settings.py
 webmanagement/__pycache__"
+*.pyc
+webmanagement/webmanagement/__pycache__/__init__.cpython-311.pyc
+webmanagement/webmanagement/__pycache__/settings.cpython-311.pyc
+webmanagement/webmanagement/__pycache__/urls.cpython-311.pyc
+webmanagement/webmanagement/__pycache__/wsgi.cpython-311.pyc

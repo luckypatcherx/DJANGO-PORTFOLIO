@@ -1,12 +1,20 @@
-{% for star in widget.stars %}
-  <label{% for k, v in widget.attrs.items %} {{ k }}="{{ v }}"{% endfor %}>
-    <input type="radio" name="{{ widget.name }}" value="{{ star }}"
-      {% if widget.value is not None %}
-        {% if star == widget.value %}
-          checked
-        {% endif %}
-      {% endif %}
-    >
-    <span class="star"></span>
-  </label>
-{% endfor %}
+<div class="edit-rating" style="display: none;">
+  <span class="close-button">&times;</span>
+  <div>
+    <center><h2>Update rating</h2></center>
+  </div>
+  <div style="margin-top: 10px; padding-bottom: 10px">
+    <center>
+      <div class="rating-stars" data-rating="0">
+        <span class="star" data-value="1">&#9733;</span>
+        <span class="star" data-value="2">&#9733;</span>
+        <span class="star" data-value="3">&#9733;</span>
+        <span class="star" data-value="4">&#9733;</span>
+        <span class="star" data-value="5">&#9733;</span>
+      </div>
+    </center>
+  </div>
+  <center>
+    <button id="saverating" type="submit">Update Rating</button>
+  </center>
+</div>

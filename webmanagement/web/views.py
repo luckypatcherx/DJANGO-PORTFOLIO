@@ -26,7 +26,6 @@ def userreg(request):
 
 def contactme(request):
     if request.method == 'POST':
-
         vuname = request.POST.get('xname')
         vuemail = request.POST.get('xemail')
         vucontact = request.POST.get('xphno')
@@ -184,7 +183,7 @@ def delete_skill(request,skill_id):
     if 'admin_id' not in request.session:
         return redirect('admin_login')
     my_data = Skill.objects.all()
-    success_message = "Skill added successfully"
+    success_message = "Skill Deleted successfully"
     return render(request, 'admin/resume.html', {'success_message': success_message,'my_data':my_data,'categories':categories})
 
 def blog_delete(request, blog_id):
